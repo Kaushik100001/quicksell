@@ -52,7 +52,7 @@ const TicketCard = ({ ticket, userName, userImage, tag, status, grouping }) => {
     <div className="ticket-card">
       <div className='heading'>
         <p className='ticketId'>{ticket.id}</p>
-        {userImage && <img className='profile' src={userImage} alt="Profile" />}
+         <img className='profile' src={profileImage} alt="Profile" />
       </div>
      
       <h4 className='title'>
