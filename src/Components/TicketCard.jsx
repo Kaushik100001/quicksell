@@ -13,9 +13,8 @@ import TodoIcon from '../assets/To-do.svg';
 import closedIcon from '../assets/Cancelled.svg'; 
 
 import profileImage from '../assets/profileImage.svg';
-import dot from '../assets/dot.svg'
 
-const TicketCard = ({ ticket, userName, userImage , tag }) => {
+const TicketCard = ({ ticket, userName, userImage, tag, status, grouping }) => {
   // Map priority values to corresponding images
   const getPriorityIcon = (priority) => {
     switch (priority) {
@@ -51,19 +50,22 @@ const TicketCard = ({ ticket, userName, userImage , tag }) => {
 
   return (
     <div className="ticket-card">
-
       <div className='heading'>
-      <p className='ticketId'>{ticket.id}</p>
-     
-      <img className='profile' src={profileImage} alt="Profile" />
+        <p className='ticketId'>{ticket.id}</p>
+        {userImage && <img className='profile' src={userImage} alt="Profile" />}
       </div>
      
-      <h4>{ticket.title}</h4>
+      <h4 className='title'>
+        {grouping === 'assigned_to' && (
+          <img className='status-icon' src={getStatusIcon(ticket.status)} alt="Status Icon" />
+        )}
+        {ticket.title} 
+      
+      </h4>
       
       <div className='tag'>
         <img className='ticketIcon' src={getPriorityIcon(ticket.priority)} alt="Priority Icon" />
-       
-        <p className='ticketTag'>{ticket.tag}</p>
+        <p className='ticketTag'>{tag}</p>
       </div>
     </div>
   );

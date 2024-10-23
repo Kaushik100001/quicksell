@@ -11,17 +11,16 @@ import noPriorityIcon from '../assets/Nopriority.svg';
 import Todo from '../assets/To-do.svg';
 import inProgress from '../assets/in-progress.svg';
 import Backlog from '../assets/Backlog.svg';
-// import resolvedStatusIcon from './assets/ResolvedStatus.svg';
 
 const KanbanBoard = ({ tickets, users, grouping, sorting }) => {
   const findUserName = (userId) => {
     const user = users.find((user) => user.id === userId);
-    return user ? user.name : 'Unknown User';
+    return user ? { name: user.name, image: user.profileImage } : { name: 'Unknown User', image: null };
   };
 
   const groupTickets = (tickets, groupBy) => {
     return tickets.reduce((groups, ticket) => {
-      const groupKey = groupBy === 'assigned_to' ? findUserName(ticket.userId) : ticket[groupBy];
+      const groupKey = groupBy === 'assigned_to' ? findUserName(ticket.userId).name : ticket[groupBy];
       if (!groups[groupKey]) {
         groups[groupKey] = [];
       }
@@ -66,7 +65,6 @@ const KanbanBoard = ({ tickets, users, grouping, sorting }) => {
         return { label: 'In Progress', icon: inProgress };
       case 'Backlog':
         return { label: 'Backlog', icon: Backlog };
-   
       default:
         return { label: 'Unknown Status', icon: null };
     }
@@ -98,14 +96,20 @@ const KanbanBoard = ({ tickets, users, grouping, sorting }) => {
               </div>
             </div>
 
-            {sortTickets(groupedTickets[group], sorting).map((ticket) => (
-              <TicketCard
-                key={ticket.id}
-                ticket={ticket}
-                userName={findUserName(ticket.userId)}
-                tag={ticket.tag}
-              />
-            ))}
+            {sortTickets(groupedTickets[group], sorting).map((ticket) => {
+              const { name, image } = findUserName(ticket.userId);
+              return (
+                <TicketCard
+                  key={ticket.id}
+                  ticket={ticket}
+                  userName={name}
+                  userImage={image} // Pass user image
+                  tag={ticket.tag}
+                  status={ticket.status} // Pass ticket status
+                  grouping={grouping} // Pass grouping to conditionally show status icon
+                />
+              );
+            })}
           </div>
         );
       })}
