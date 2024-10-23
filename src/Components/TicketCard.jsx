@@ -56,7 +56,7 @@ const TicketCard = ({ ticket, userName, userImage, tag, status, grouping }) => {
       </div>
      
       <h4 className='title'>
-        {grouping === 'assigned_to' && (
+      {(grouping === 'assigned_to' || grouping === 'priority') && (
           <img className='status-icon' src={getStatusIcon(ticket.status)} alt="Status Icon" />
         )}
         {ticket.title} 
