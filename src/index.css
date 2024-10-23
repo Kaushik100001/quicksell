@@ -1,0 +1,194 @@
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grouping-control, .sorting-control {
+  margin: 20px 0;
+  text-align: center;
+}
+
+select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.kanban-board {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 10px;
+}
+
+.kanban-column {
+  flex: 1;
+  padding: 10px;
+  background-color: #f4f5f7;
+  border-radius: 5px;
+}
+
+.kanban-column h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.dot{
+  width: 10px;
+  height: 10px;
+}
+
+.addMenu{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+.profile{
+  display: flex;
+  height: 30px;
+  width: 30px;
+  /* background-color: black; */
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  display: flex;
+  gap: 4px;
+}
+
+.tag{
+  display: flex;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.priority-icon{
+  padding-right: 10px;
+}
+
+.tagP{
+  border: 0.2px solid 	#FAF9F6 ; 
+  padding: 2px;
+
+}
+.iconP{
+  border: 0.2px solid  	#FAF9F6 ; 
+  padding: 2px;
+}
+
+.ticket-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.ticket-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ticket-card h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.ticket-card p {
+  margin: 5px 0;
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.display-dropdown {
+   /* display: flex; */
+   position:relative;
+}
+
+.dropdown-button {
+  background-color: #f1f1f1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #E5E4E2;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  gap: 4px ;
+}
+
+.dropdown-button:focus {
+  outline: none;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.grouping-section,
+.sorting-section {
+  margin-bottom: 8px;
+  
+}
+
+label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+select {
+  padding: 4px;
+  border-radius: 4px;
+}
+.ticketTag{
+  color: grey;
+  border: 1px solid #E5E4E2 ;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.number{
+  color: grey;
+  font: icon;
+  padding-left: 10px;
+}
+
+.ticketIcon{
+  border: 1px solid #E5E4E2 ;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  padding-top: 0px;
+
+}
+
+.ticketId{
+  color: grey;
+
+}
+
+.Navbar{
+  padding-bottom: 1rem ;
+  border-bottom: 1px solid #E5E4E2;
+  
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);
+}
