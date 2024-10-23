@@ -60,11 +60,15 @@ const TicketCard = ({ ticket, userName, userImage, tag, status, grouping }) => {
           <img className='status-icon' src={getStatusIcon(ticket.status)} alt="Status Icon" />
         )}
         {ticket.title} 
-      
+       
       </h4>
       
+      {/* Always show tag */}
       <div className='tag'>
-        <img className='ticketIcon' src={getPriorityIcon(ticket.priority)} alt="Priority Icon" />
+        {/* Only show priority icon if not grouped by priority */}
+        {grouping !== 'priority' && (
+          <img className='ticketIcon' src={getPriorityIcon(ticket.priority)} alt="Priority Icon" />
+        )}
         <p className='ticketTag'>{tag}</p>
       </div>
     </div>
